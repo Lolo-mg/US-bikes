@@ -43,7 +43,7 @@ def get_filters():
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-        day = input('''Which day of the week would you like to explore?
+        day = input('''Which day of the week would you like to explore or you want all the week?
 Enter 'all', 'monday', 'tuesday', etc: ''').lower()
         days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday',
         'saturday', 'sunday']
@@ -138,7 +138,7 @@ def station_stats(df):
     print("Most commonly used end station is: ",most_common_end_station)
 
     # TO DO: display most frequent combination of start station and end station trip
-    """ We will use gruop by to combinde start and end station but we can't use mode() then we use sort values and shows the first number of the row using head(1) """
+    """ We will use gruop by to combinde start and end station but we can't use mode() then we use sort values and shows the first number of the row """
     combine_stations = df.groupby(['Start Station','End Station'])
     most_combine_stations =  combine_stations.size().sort_values(ascending = False).head(1)
     print('most frequent combination of start station and end station trip is: ',most_combine_stations)
